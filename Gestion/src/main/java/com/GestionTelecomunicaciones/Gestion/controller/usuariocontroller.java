@@ -35,16 +35,23 @@ public class usuariocontroller {
     @GetMapping("/mostrar") //me muestra los datos ingresados
     public Iterable<usuario> getAll(){
         return users.getAll();
-    }
+    }   
     
     @PostMapping("/modificar")
     public usuario updateusuario(@RequestBody usuario objeto_usuario){
         return this.users.modifyusuario(objeto_usuario);
     }
+        
+    //para que el postman lo lea normal y elimine el dato coloco este código
+    //@DeleteMapping(value="/{id}")
+    //public Boolean deleteusuario(@PathVariable(value="id")Long id){
+    //    return this.users.deleteusuario(id);
+    //}
     
-    //@PostMapping(value="/{id}")
-    @DeleteMapping(value="/{id}")
-    public Boolean deleteusuario(@PathVariable(value="id")Long id){
-        return this.users.deleteusuario(id);
+    //PARA EL FRONTEND COLOCO ESTE CÓDIGO QUE SE COMUNICA CON userservice.js
+    //@PostMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
+    public void deleteusuario(@PathVariable Long id){
+        this.users.deleteusuario(id);
     }
 }

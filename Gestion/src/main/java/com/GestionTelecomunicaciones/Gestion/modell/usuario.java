@@ -20,8 +20,8 @@ public class usuario {
     //llave primaria y luego los atributos
     @Id
     // identificar las columnas, especificar el tipo de contenido y caracteristicas
-    @Column (name="id")
-    private Long iduser;
+    @Column (name="id")//estos son nombres que le puedo colocar en el fronend
+    private Long iduser;// estos son nombres originales
     
     @Column (unique=true, name="user", nullable=false, length=20)
     private String nomuser;
